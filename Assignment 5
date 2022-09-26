@@ -1,0 +1,90 @@
+  # First Question
+#A. The null Hypothesis: Machine is meeting its specification for an average breaking strength of a mean of 70. 
+#Alternative Hypothesis: Machine is not meeting the speficication for average breaking strenght and not averaging breaking strenght of a mean of 70.
+
+#B and C
+    a<-70
+    s<-3.5
+    n<-49
+    xbar<-69.1
+    z<-(xbar-a)/(s/sqrt(n))
+ #   > z
+ #  [1] -1.8
+
+     
+      2*pnorm(-abs(z))
+   #  [1] 0.07186064
+      alpha = .05
+      c(-z,alpha, z.alpha)
+      z.alpha = qnorm(1-alpha/2)
+      xxx=2*pnorm(z) # lower tail
+      xxx
+    # [1] 0.07186064
+      z < -z.alpha
+    #  [1] FALSE
+ # p-value is 0.0719, it is the test statistic. Therefore is greater than the level of significance (0.05) 
+# rejecting Null hypothesis. meaning that there is not suffiecient evidence that the machine is not meeting the manufactures specification 
+# for average breaking strength of level of significant of 0.05.
+
+#D. 
+    a<-70
+    s<-1.75
+    n<-49
+    xbar<-69.1
+    z<-(xbar-a)/(s/sqrt(n))
+    # >  z
+    # [1] -3.6
+    2*pnorm(-abs(z))
+   # [1] 0.0003182172 = FALSE
+    alpha = .05
+    c(-z,alpha, z.alpha)
+    z.alpha = qnorm(1-alpha/2)
+    xxx=2*pnorm(z) # lower tail
+    xxx
+#[1] 0.0003182172
+    z < -z.alpha
+#  [1] TRUE - rejected from test statitistic, would not meet specifications for the average strength 
+
+#E   
+    a<-70
+    s<-3.5
+    n<-49
+    xbar<-69
+  z<-(xbar-a)/(s/sqrt(n))
+    # > z
+    # [1] -2
+  2*pnorm(-abs(z))
+ # 0.04550026 = TRUE - would not meet specification again because it is less than z value
+ 
+   #Second Question: 
+#If x̅ = 85, σ = standard deviation = 8, and n=64, set up 95% confidence interval estimate of the population mean μ.
+  xbar<-85
+  s<-8
+  n<-64
+  a<-0.5
+  error <-qnorm(0.975)*(s/sqrt(64))
+  xbar - error
+  # [1] 83.04004
+  xbar + error 
+  # [1] 86.95996
+  # The 95% confidence interval of the population for mean μ = (83.04004,86.95996)
+  
+  
+  #Third Question
+  x<-c(92,108,135)
+  y<-c(95.9,113,114)
+  
+   df<-data.frame(x,y)
+   plot(df)
+   cor(x,y)
+   # [1] 0.8132582
+   cor(df,method="pearson")
+#      x         y
+#   x 1.0000000 0.8132582
+#   y 0.8132582 1.0000000
+   cor(df,method="spearman")
+#   x y
+#   x 1 1
+#   y 1 1
+   
+   corrgram(df)
